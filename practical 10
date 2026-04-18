@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iframe and Map Demo</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            margin: 0;
+            background: #f4f4f4;
+        }
+
+        header {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 15px;
+        }
+
+        .container {
+            padding: 20px;
+        }
+
+        iframe {
+            width: 100%;
+            border: 2px solid #333;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            color: #333;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>HTML Iframe Practical</h1>
+</header>
+
+<div class="container">
+
+    <!-- External Website -->
+    <h2>Embedded External Webpage</h2>
+    <iframe 
+        src="https://github.com/" 
+        height="300"
+        title="Example Website"
+        loading="lazy">
+    </iframe>
+
+    <!-- Another Page (Wikipedia works sometimes) -->
+    <h2>Another Embedded Page</h2>
+    <iframe 
+        src="https://www.wikipedia.org" 
+        height="300"
+        title="Wikipedia"
+        loading="lazy">
+    </iframe>
+
+    <!-- Google Map -->
+    <h2>Embedded Google Map</h2>
+    <iframe 
+        src="https://www.google.com/maps?q=Nagpur&output=embed"
+        height="400"
+        title="Map of Nagpur"
+        allowfullscreen
+        loading="lazy">
+    </iframe>
+
+</div>
+
+</body>
+</html>
