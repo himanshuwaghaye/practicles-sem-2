@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS3 Responsive Webpage</title>
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f4f4f4;
+        }
+
+        header {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: center;
+            background: #555;
+        }
+
+        nav a {
+            color: white;
+            padding: 14px 20px;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            background: #222;
+        }
+
+        /* Multi-column section */
+        .content {
+            padding: 20px;
+            column-count: 3;
+            column-gap: 20px;
+            column-rule: 2px solid gray;
+        }
+        /* Cards */
+        .card {
+            background: white;
+            margin: 20px;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.5s;
+        }
+        /* Transformations */
+        .card:hover {
+            transform: scale(1.1) rotate(3deg);
+        }
+
+        /* Icons */
+        .icon {
+            font-size: 40px;
+            color: #ff5722;
+        }
+
+        /* Animation */
+        .animated-box {
+            width: 100px;
+            height: 100px;
+            background: red;
+            margin: 20px auto;
+            animation: moveBox 4s infinite;
+        }
+        @keyframes moveBox {
+            0% { transform: translateX(0); }
+            50% { transform: translateX(200px); background: blue; }
+            100% { transform: translateX(0); }
+        }
+        /* Responsive Design */
+        @media screen and (max-width: 768px) {
+            .content {
+                column-count: 1;
+            }
+
+            nav {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>Responsive Webpage using CSS3</h1>
+</header>
+
+<div class="card">
+    <i class="fas fa-laptop-code icon"></i>
+    <h2>Web Design</h2>
+    <p>Hover to see transformation effect</p>
+</div>
+
+<div class="card">
+    <i class="fas fa-mobile-alt icon"></i>
+    <h2>Responsive</h2>
+    <p>Works on all devices</p>
+</div>
+<div class="animated-box"></div>
+
+</body>
+</html>
