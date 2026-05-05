@@ -1,0 +1,72 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+<meta charset="UTF-8"> 
+<title>HTML5 APIs Demo</title> 
+<style> 
+body { font-family: Arial; text-align: center; } 
+#dragBox { 
+width: 100px; height: 100px; background: red; 
+color: white; line-height: 100px; margin: 20px auto; 
+} 
+#dropBox { 
+width: 200px; height: 200px; border: 2px dashed black; 
+margin: 20px auto; 
+} 
+</style> 
+</head> 
+
+<body> 
+<h2>Drag and Drop API</h2> 
+<div id="dragBox" draggable="true" ondragstart="drag(event)">Drag Me</div> 
+<div id="dropBox" ondrop="drop(event)" ondragover="allowDrop(event)">Drop Here</div> 
+<h2>Geolocation API</h2> 
+<button onclick="getLocation()">Get Location</button> 
+<p id="location"></p> 
+<h2>Web Storage API</h2> 
+<input type="text" id="name" placeholder="Enter your name"> 
+<button onclick="saveData()">Save</button> 
+<button onclick="loadData()">Load</button> 
+<p id="output"></p> 
+<script> 
+/* Drag and Drop */ 
+function allowDrop(event) { 
+event.preventDefault(); 
+} 
+function drag(event) { 
+event.dataTransfer.setData("text", event.target.id); 
+} 
+function drop(event) { 
+event.preventDefault(); 
+let data = event.dataTransfer.getData("text"); 
+event.target.appendChild(document.getElementById(data)); 
+} 
+/* Geolocation */ 
+function getLocation() { 
+if (navigator.geolocation) { 
+navigator.geolocation.getCurrentPosition(showPosition, showError); 
+} else { 
+document.getElementById("location").innerHTML = "Geolocation not supported."; 
+} 
+} 
+function showPosition(position) { 
+document.getElementById("location").innerHTML = 
+"Latitude: " + position.coords.latitude + 
+"<br>Longitude: " + position.coords.longitude; 
+} 
+function showError(error) { 
+document.getElementById("location").innerHTML = "Permission denied or error occurred."; 
+} 
+/* Web Storage */ 
+function saveData() { 
+let name = document.getElementById("name").value; 
+localStorage.setItem("username", name); 
+alert("Data Saved!"); 
+} 
+function loadData() { 
+let name = localStorage.getItem("username"); 
+document.getElementById("output").innerHTML = "Stored Name: " + name; 
+} 
+</script> 
+</body> 
+</html>
